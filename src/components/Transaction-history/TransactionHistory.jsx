@@ -1,6 +1,6 @@
-// import items from '../../transaction-history/transactions.json';
+import PropTypes from 'prop-types';
 
-const TransactionHistory = () => {
+const TransactionHistory = ({items}) => {
   return (
     <table className="transaction-history">
       <thead>
@@ -12,19 +12,27 @@ const TransactionHistory = () => {
       </thead>
 
       <tbody>
-        <tr>
-          <td>Invoice</td>
-          <td>125</td>
-          <td>USD</td>
+      {items.map(({id, type, amount, currency}) => (
+        <tr key={id}>
+          <td>{type}</td>
+          <td>{Math.round(amount)}</td>
+          <td>{currency}</td>
         </tr>
-        <tr>
-          <td>Withdrawal</td>
-          <td>85</td>
-          <td>USD</td>
-        </tr>
+      ))}
       </tbody>
     </table>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired, 
+      type: PropTypes.string.isRequired, 
+      amount: PropTypes.string.isRequired, 
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TransactionHistory;

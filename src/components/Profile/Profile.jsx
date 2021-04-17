@@ -1,34 +1,34 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import noPicture from './no-image.jpg';
 
 
-const Profile = (props) => {
+const Profile = ({avatar, name, tag, location, stats}) => {
   return (
 <div className="profile">
   <div className="description">
     <img
-      src={props.avatar}
+      src={avatar}
       alt="Аватар пользователя"
       className="avatar"
       width="200"
     />
-    <p className="name">{props.name}</p>
-    <p className="tag">{props.tag}</p>
-    <p className="location">{props.location}</p>
+    <p className="name">{name}</p>
+    <p className="tag">{tag}</p>
+    <p className="location">{location}</p>
   </div>
 
   <ul className="stats">
     <li>
       <span className="label">Followers</span>
-      <span className="quantity">{props.followers}</span>
+      <span className="quantity">{stats.followers}</span>
     </li>
     <li>
       <span className="label">Views</span>
-      <span className="quantity">{props.views}</span>
+      <span className="quantity">{stats.views}</span>
     </li>
     <li>
       <span className="label">Likes</span>
-      <span className="quantity">{props.likes}</span>
+      <span className="quantity">{stats.likes}</span>
     </li>
   </ul>
 </div>);
@@ -36,16 +36,19 @@ const Profile = (props) => {
 
 Profile.defaultProps = {
   avatar: noPicture,
+  followers: 0,
+  views: 0,
+  likes: 0,
 };
 
 Profile.propTypes = {
-  name: propTypes.string.isRequired, 
-  tag: propTypes.string.isRequired, 
-  location: propTypes.string.isRequired, 
-  avatar: propTypes.string, 
-  followers: propTypes.number.isRequired, 
-  views: propTypes.number.isRequired, 
-  likes: propTypes.number.isRequired,
+  avatar: PropTypes.string, 
+  name: PropTypes.string.isRequired, 
+  tag: PropTypes.string.isRequired, 
+  location: PropTypes.string.isRequired,
+  followers: PropTypes.number, 
+  views: PropTypes.number, 
+  likes: PropTypes.number,
 }
 
 export default Profile;
