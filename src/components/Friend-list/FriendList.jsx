@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import noPicture from './no-image.jpg';
+import './FriendList.css';
 
 const FriendList = ({friends}) => {
   return (
@@ -15,19 +15,15 @@ const FriendList = ({friends}) => {
   )
 };
 
-FriendList.defaultProps = {
-  avatar: noPicture,
-};
-
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
-      avatar: PropTypes.string, 
+      avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired, 
       id: PropTypes.number.isRequired, 
       isOnline: PropTypes.bool.isRequired,
     })
-  ).isRequired,
+  )
 };
 
 export default FriendList;

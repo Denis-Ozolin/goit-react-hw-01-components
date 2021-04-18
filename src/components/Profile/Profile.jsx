@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import noPicture from './no-image.jpg';
+import './Profile.css';
 
 
 const Profile = ({avatar, name, tag, location, stats}) => {
