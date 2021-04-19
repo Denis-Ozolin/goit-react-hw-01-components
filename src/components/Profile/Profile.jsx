@@ -11,7 +11,6 @@ const Profile = ({avatar, name, tag, location, stats}) => {
       src={avatar}
       alt="Аватар пользователя"
       className="avatar"
-      width="200"
     />
     <p className="name">{name}</p>
     <p className="tag">{tag}</p>
