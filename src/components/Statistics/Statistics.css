@@ -1,19 +1,37 @@
 .statistics{
   width: 480px;
-  padding: 20px;
-  background-color: teal;
+  /* padding: 20px; */
+  background-color: tomato;
   border: 4px solid black;
   border-radius: 5px;
 }
 
 .title{
   text-align: center;
-  padding: 0;
+  padding: 16px 0;
   margin: 0;
 }
 
 .stat-list{
+  display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px;
+  background-color:sienna;
+}
+
+.item:nth-child(2n){
+  background-color:salmon;
+}
+
+.label{
+  margin-bottom: 3px;
 }
